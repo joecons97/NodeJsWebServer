@@ -1,0 +1,16 @@
+<layout src="layouts/main.html"></layout>
+<title>About</title>
+<content>
+	<script>
+		onload = async function(){
+			var resp = await fetch("/api/Test/GetData");
+			var json = await resp.json();
+
+			var nameElem = document.getElementById("name").innerText = "Hello, I am " + json.Name + ". I am a programmer";
+		}
+	</script>
+	<div>
+		<h3>About:</h3>
+		<p id="name">Loading...</p>
+	</div>
+</content>

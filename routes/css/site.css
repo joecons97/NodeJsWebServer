@@ -1,0 +1,31 @@
+body{
+	margin: 0px;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.main{
+	padding: 16px;
+}
+
+.header{
+	height: 64px;
+	width: 100%;
+	background-color:darkblue;
+	color:white;
+	display: flex;
+}
+
+.header .item{
+	color: white;
+	text-decoration: none;
+	height: 100%;
+	padding: 0px 32px;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+}
+
+.header .item:hover{
+	background-color: rgba(1, 1, 1, 0.5);
+}

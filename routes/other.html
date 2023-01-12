@@ -1,0 +1,14 @@
+<layout src="layouts/altlayout.html"></layout>
+<title>Other Things</title>
+<content>
+	<script>
+		onload = async function(){
+			var resp = await fetch("/api/Machine/GetInfo");
+			var json = await resp.json();
+			console.log(json);
+		}
+	</script>
+	<div>
+		<h3>Other:</h3>
+	</div>
+</content>

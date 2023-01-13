@@ -16,7 +16,7 @@ export async function apiCall(req, res) {
 	let ctrl = split[2];
 	let action = split[3];
 	let type = req.method;
-	let finalRoute = `${type}/${action}`.toLowerCase();
+	let finalRoute = `${type}/${action}`.toLowerCase().split("?")[0];
 	if(ctrl in global.apiRoutes && finalRoute in global.apiRoutes[ctrl].routes){
 		let body = "";
 
@@ -59,7 +59,7 @@ export function getQueryString(req){
 
 	for(let i = 0; i < elements.length; i++){
 		let elm = elements[i].split("=");
-		if(!elm[0] in queryObject){
+		if(!(elm[0] in queryObject)){
 			queryObject[elm[0]] = elm[1];
 		}
 	}

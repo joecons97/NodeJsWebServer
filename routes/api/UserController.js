@@ -7,7 +7,7 @@ export default class UserController extends ApiController
 
 		this.name = "User";
 
-		this.AddRoute("get", "GetData", ({}) =>{
+		this.AddRoute("get", "GetData", (queryString, body) => {
 			return {
 				Name: "Joe"
 			};

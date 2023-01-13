@@ -2,13 +2,36 @@
 <title>Other Things</title>
 <content>
 	<script>
-		onload = async function(){
-			var resp = await fetch("/api/Machine/GetInfo");
-			var json = await resp.json();
-			console.log(json);
+		onload = function(){
+			document.getElementById("calcLoader").hidden = true;
+		}
+
+		async function runCalc(){
+			document.getElementById("calcLoader").hidden = false;
+			let body = {
+				num0: document.getElementById("num0").value,
+				num1: document.getElementById("num1").value
+			}
+
+			let res = await fetch("api/Test/RunCalc", {
+				method: "POST",
+				body: JSON.stringify(body)
+			})
+			let json = await res.json();
+			document.getElementById("calcLoader").hidden = true;
+			document.getElementById("result").value = json.value.toFixed(2);
 		}
 	</script>
 	<div>
 		<h3>Other:</h3>
+		<span>First num:</span>
+		<input type="number" value="0" id="num0"></input><br/><br/>
+		<span>Second num:</span>
+		<input type="number" value="0" id="num1"></input><br/><br/>
+		<button onclick="runCalc()">Execute</button>
+		<div id="calcLoader" class="lds-dual-ring"></div>
+		<br/><hr/>
+		<span>Result:</span>
+		<input type="number" id="result" value="0" readonly="true"></input>
 	</div>
 </content>
